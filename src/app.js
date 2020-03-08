@@ -38,6 +38,10 @@ app.get('/readAll', async (req, res) => {
 	res.status(200).send(tups)
 })
 
+app.post('/imageUpload', (req, res) => {
+	res.send(req.file.buffer);
+})
+
 app.listen(port, function(){
   console.log("Started on PORT", port);
 })

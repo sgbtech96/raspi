@@ -17,7 +17,10 @@ hbs.registerPartials(partialsPath);
 app.use(express.static(publicPath));
 
 app.get('', (req, res) => {
-	res.render('index')
+	res.render('index', {
+		title: 'Field Monitor',
+		name: 'YoGang'
+	})
 })
 app.post('/sensorInput', (req, res) => {
 	const senv = new AIS(req.body)

@@ -13,8 +13,8 @@ const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
-hbs.registerPartials(partialsPath);
-app.use(express.static(publicPath));
+hbs.registerPartials(partialsPath)
+app.use(express.static(publicPath))
 
 app.get('', (req, res) => {
 	res.render('index', {
@@ -39,9 +39,9 @@ app.get('/readAll', async (req, res) => {
 })
 
 app.post('/imageUpload', (req, res) => {
-	res.send(req.file.buffer);
+	res.send("check")
 })
 
 app.listen(port, function(){
-  console.log("Started on PORT", port);
+  console.log("Started on PORT", port)
 })

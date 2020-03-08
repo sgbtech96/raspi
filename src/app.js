@@ -33,6 +33,11 @@ app.get('/read', async (req, res) => {
 	res.status(200).send(tups[(tups.length - 1)])
 })
 
+app.get('/readAll', async (req, res) => {
+	const tups = await AIS.find({})
+	res.status(200).send(tups)
+})
+
 app.listen(port, function(){
   console.log("Started on PORT", port);
 })

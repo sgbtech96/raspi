@@ -22,19 +22,15 @@ app.get('', (req, res) => {
 		name: 'YoGang'
 	})
 })
-app.post('/sensorInput', (req, res) => {
+app.post('/sensorInput', async (req, res) => {
 	const senv = new AIS(req.body)
-	console.log(req.body)
-	senv.save().then(() => {
-		res.status(200).send(senv)
-	}).catch((e) => {
-		console.log('Error', e)
-	})
+	await senv.save()
+	res.status(201).send(senv)
 })
 
 app.get('/read', async (req, res) => {
 	const tups = await AIS.find({})
-	res.send(tups[(tups.length - 1)])
+	res.status(200).send(tups[(tups.length - 1)])
 })
 
 app.listen(port, function(){

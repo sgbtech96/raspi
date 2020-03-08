@@ -1,0 +1,3 @@
+fetch('/read').then((response) => {
+	
+})
